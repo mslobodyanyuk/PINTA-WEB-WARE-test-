@@ -51,12 +51,11 @@ class ScheduleController extends Controller
         $dayofWeek = Carbon::createFromFormat('d.m.Y', $date);
         $dayofWeek = $dayofWeek->dayOfWeek;
 
-        $scheduleTypes = [
-            'everyDay' => '1',
-            'workDay' => '2',
-            'hollyDay' => '3',
-        ];
-
+        $types = scheduleType::all();
+        foreach ($types as $scheduleType) {
+            $scheduleTypes["$scheduleType->name_en"] = $scheduleType->id;
+        }
+        //dump($scheduleTypes);
     /*   $schedules = DB::table('schedules')
                                ->join('trains', 'schedules.train_id', '=', 'trains.id')
                                ->join('cities', 'schedules.city_id', '=', 'cities.id')
@@ -77,7 +76,7 @@ class ScheduleController extends Controller
 
 
         if( $dayofWeek == 6 || $dayofWeek == 0 ){
-            $scheduleType = $scheduleTypes['hollyDay'];
+            $scheduleType = $scheduleTypes['holiDay'];
         }else{
             $scheduleType = $scheduleTypes['workDay'];
         }

@@ -28,7 +28,7 @@
 
     <label><h1>Welcome to test program!!!</h1></label><br />
         {{--{!! Form::model($schedule,['method' => 'PATCH','route'=>['schedules.',$schedule[0]->id]]) !!}--}}
-        <form id="station" method="post" action="/stationSchedule">
+        <form id="station" method="post" action="/searchSchedule">
             {{ csrf_field() }}
 
             <div class="form-group">

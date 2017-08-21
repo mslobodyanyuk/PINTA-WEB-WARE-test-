@@ -14,4 +14,4 @@
 Route::resource('/', 'ScheduleController');
 Route::resource('schedules', 'ScheduleController');
 
-Route::post('stationSchedule','ScheduleController@searchSchedule');
+Route::post('searchSchedule','ScheduleController@searchSchedule');

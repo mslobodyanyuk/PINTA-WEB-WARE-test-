@@ -57,9 +57,9 @@ class ScheduletypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('schedule_types')->insert([
-                                                ['name' => 'ежедневно'],
-                                                ['name' => 'по-будням'],
-                                                ['name' => 'по-выходным']
+                                                ['name' => 'ежедневно', 'name_en' => 'everyDay'],
+                                                ['name' => 'по-будням', 'name_en' => 'workDay'],
+                                                ['name' => 'по-выходным', 'name_en' => 'holiDay' ],
                                             ]);
     }
 
