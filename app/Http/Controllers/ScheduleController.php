@@ -61,7 +61,7 @@ class ScheduleController extends Controller
                                ->join('cities', 'schedules.city_id', '=', 'cities.id')
                                ->join('schedule_types', 'schedules.schedule_type_id', '=', 'schedule_types.id')
                                ->select('schedules.id AS id', 'trains.name AS train', 'cities.name AS city', 'schedules.time AS time', 'schedule_types.name AS schedule_type')
-                               ->where('schedules.schedule_type_id', '1' ) // everyDay
+                               ->where('schedules.schedule_type_id', $everyDay )
                                ->orWhere('schedules.schedule_type_id', $scheduleType)
                                ->get();*/
 
@@ -70,10 +70,11 @@ class ScheduleController extends Controller
                         ' WHERE schedules.train_id = trains.id'.
                             ' AND( schedules.schedule_type_id = schedule_types.id'.
                             ' AND schedules.city_id = cities.id '.
-                            ' AND( ( schedules.schedule_type_id = 1 ) OR ( schedules.schedule_type_id = :scheduleType ) ))';
+                            ' AND( ( schedules.schedule_type_id = :everyDay ) OR ( schedules.schedule_type_id = :scheduleType ) ))';
 
         $nearestTrainSQL = ' AND schedules.time >= '. Carbon::now('Europe/Kiev')->format('H.i'). ' ORDER BY schedules.time limit 1';
 
+        $everyDay = $scheduleTypes['everyDay'];
 
         if( $dayofWeek == 6 || $dayofWeek == 0 ){
             $scheduleType = $scheduleTypes['holiDay'];
@@ -90,7 +91,7 @@ class ScheduleController extends Controller
                 $sqlSearch = $sqlSearch . ' ORDER BY time, city, train ASC ';
             }
 
-            $schedules = DB::select($sqlSearch, [$scheduleType] );
+            $schedules = DB::select($sqlSearch, [$everyDay, $scheduleType] );
         }else{
                 $sqlSearch = $sqlSearch . ' AND cities.id = :city_id ';
     // nearest train to concrete station
@@ -100,7 +101,7 @@ class ScheduleController extends Controller
                     $sqlSearch = $sqlSearch . '  ORDER BY time, train ASC ';
                 }
 
-                $schedules = DB::select( $sqlSearch, [$scheduleType, $city_id] );
+                $schedules = DB::select( $sqlSearch, [$everyDay, $scheduleType, $city_id] );
         }
         return view('schedules.index', compact('schedules', 'cities', 'date', 'city_id'));
     }
