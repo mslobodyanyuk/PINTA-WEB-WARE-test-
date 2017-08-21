@@ -101,7 +101,6 @@ class ScheduleController extends Controller
                     $sqlSearch = $sqlSearch . '  ORDER BY time, train ASC ';
                 }
 
-        dump($sqlSearch);
                 $schedules = DB::select( $sqlSearch, [$scheduleType, $city_id] );
         }
         return view('schedules.index', compact('schedules', 'cities', 'date', 'city_id'));
