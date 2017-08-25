@@ -121,6 +121,7 @@ class TrainsTableSeeder extends Seeder
                                         ['name' => '6136', 'type' =>'-'],
                                         ['name' => '6045', 'type' =>'-'],
                                         ['name' => '6047', 'type' =>'-'],
+                                        ['name' => '6272', 'type' =>'-'],
                                     ]);
     }
 
@@ -181,7 +182,8 @@ class ScheduleTableSeeder extends Seeder
                                             ['train_id' => '43', 'city_id' => '14', 'time' => '21.30', 'schedule_type_id' => '2' ],
                                             ['train_id' => '44', 'city_id' => '13', 'time' => '22.09', 'schedule_type_id' => '2' ],
                                             ['train_id' => '45', 'city_id' => '2', 'time' => '22.33', 'schedule_type_id' => '2' ],
-                                            ['train_id' => '46', 'city_id' => '2', 'time' => '23.46', 'schedule_type_id' => '1' ]
+                                            ['train_id' => '46', 'city_id' => '2', 'time' => '23.46', 'schedule_type_id' => '1' ],
+                                            ['train_id' => '47', 'city_id' => '1', 'time' => '23.46', 'schedule_type_id' => '3' ]
                                         ]);
     }
 

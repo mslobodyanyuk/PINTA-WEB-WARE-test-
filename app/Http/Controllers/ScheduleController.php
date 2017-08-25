@@ -55,6 +55,8 @@ class ScheduleController extends Controller
         foreach ($types as $scheduleType) {
             $scheduleTypes["$scheduleType->name_en"] = $scheduleType->id;
         }
+        // ?попробовать обратиться через динамическое поле
+
         //dump($scheduleTypes);
     /*   $schedules = DB::table('schedules')
                                ->join('trains', 'schedules.train_id', '=', 'trains.id')

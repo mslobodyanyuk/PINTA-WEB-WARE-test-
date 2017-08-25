@@ -15,10 +15,17 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('train_id');
-            $table->string('city_id', 10);
+            $table->integer('train_id')->unsigned();
+            $table->foreign('train_id')->references('id')->on('trains');
+
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities');
+
             $table->string('time');
-            $table->integer('schedule_type_id');
+
+            $table->integer('schedule_type_id')->unsigned();
+            $table->foreign('schedule_type_id')->references('id')->on('schedule_types');
+
             $table->timestamps();
         });
     }

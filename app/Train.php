@@ -10,4 +10,8 @@ class Train extends Model
         'name',
         'type'
     ];
+
+    public function schedules(){
+        return $this->hasMany('App\Schedule');
+    }
 }
