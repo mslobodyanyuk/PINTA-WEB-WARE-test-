@@ -25,7 +25,7 @@ What will be considered:
 
 
 Install the project
-===================
+-------------------
 1. `git clone << project path >>`
 
 2. `сomposer install`
@@ -33,9 +33,11 @@ Install the project
 3. `env` database configuration file.
 
 4. Starting Migrations
+	
 	`php artisan migrate`
 	
 5. launch of fixtures - start seeder
+	
 	`php artisan db:seed`
 	
 6. configure the host.
@@ -67,7 +69,7 @@ When debugging a project, it can be convenient to clear the fields id autoincrem
 To nullify AUTO_INCREMENT, you need the following query:
 ALTER TABLE <table name> AUTO_INCREMENT = 0
 +? TRUNCATE <table_name>
-[Clears the table, but also resets the counter](https://www.stackoverflow.com/questions/131727/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0% B8% D1% 82% D1% 8C-% D0% B7% D0% BD% D0% B0% D1% 87% D0% B5% D0% BD% D0% B8% D0% B5-auto-increment)
+[Clears the table, but also resets the counter](https://www.stackoverflow.com/questions/131727/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0%B8%D1%82%D1%8C-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-auto-increment)
 
 
 - In phpMyAdmin -> SQL:
@@ -100,6 +102,7 @@ Create a controller.
 In the command line
 ###### 
 `php artisan make: model Train`
+
 ...
 
 2. Install Form and Html Facades
@@ -264,7 +267,7 @@ Create a new file in `resources/views/schedules` called `edit.blade.php` and pas
 / **
  * Update the specified resource in storage.
  *
- * @param int $ id
+ * @param int $id
  * @return Response
  * /
     public function update ($id)
@@ -328,7 +331,8 @@ View source:
   </script>
 ```  
   
-######[Datepicker Calendar Language Change](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0% B8% D0% B5-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0-javascript-% D0% B8-% D0% B1% D0% B8% D0% B1% D0% BB % D0% B8% D0% BE% D1% 82% D0% B5% D0% BA% D0% B8-jquery-% D0% BF% D1% 80% D0% B8-% D1% 81% D0% BE% D0 % B7% D0% B4% D0% B0% D0% BD% D0% B8% D0% B8-% D0% B2% D0% B5% D0% B1-% D1% 81% D0% B0% D0% B9% D1 % 82% D0% B0 / 62-% D1% 81% D0% BC% D0% B5% D0% BD% D0% B0-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0 -% D0% BA% D0% B0% D0% BB% D0% B5% D0% BD% D0% B4% D0% B0% D1% 80% D1% 8F>)
+[Datepicker Calendar Language Change](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0% B8% D0% B5-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0-javascript-% D0% B8-% D0% B1% D0% B8% D0% B1% D0% BB % D0% B8% D0% BE% D1% 82% D0% B5% D0% BA% D0% B8-jquery-% D0% BF% D1% 80% D0% B8-% D1% 81% D0% BE% D0 % B7% D0% B4% D0% B0% D0% BD% D0% B8% D0% B8-% D0% B2% D0% B5% D0% B1-% D1% 81% D0% B0% D0% B9% D1 % 82% D0% B0 / 62-% D1% 81% D0% BC% D0% B5% D0% BD% D0% B0-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0 -% D0% BA% D0% B0% D0% BB% D0% B5% D0% BD% D0% B4% D0% B0% D1% 80% D1% 8F>)
+######
 
 ```php
  $(function () {
@@ -342,13 +346,16 @@ View source:
                 })
                 });
 ```
-It is necessary that the previous dates were not active. Video - https://www.youtube.com/watch?v=GYNtRphgzIw - datepicker disable previousdate
+
+It is necessary that the previous dates were not active. Video - 
 ######
 
+[- datepicker disable previousdate](https://www.youtube.com/watch?v=GYNtRphgzIw)
+
 ```php
-  $ (document).ready (function () {//////
+  $(document).ready (function () {//////
                 var minDate = new Date (); //////
-                $ ("#datepicker") .datepicker ({
+                $("#datepicker").datepicker ({
                     minDate: minDate, /////
                     monthNames: ['January', 'February', 'March', 'April',
                         May, June, July, August, September,
@@ -362,34 +369,35 @@ It is necessary that the previous dates were not active. Video - https://www.you
                 })
                 });
 ```
+
 Add a route.
 ######
+
 `routes\web`
+
 ```php
     Route::post('searchSchedule', 'ScheduleController@searchSchedule');
 ```
 
 `scheduleController.php`
+
 ```php
  public function searchSchedule (Request $request)
     {
         $city_id = Input::get('city');
 ```
     we get the parameter value select
-
-    + date
+    + date	
 ```php
 	  $date = Request::get('date');
       if (NULL == $date) {
           $date = Carbon::now('dd.i.Y');
 ```
-
     Determine a weekday or holiday.
 ```php	
   if ($dayofWeek == 6 || $dayofWeek == 0) {
 ```
-  
-    + Transfer parameters to the view from the controller by default ... - if the date is not specified
+    + Transfer parameters to the view from the controller by default ... - if the date is not specified	
 ```php	
  public function searchSchedule ()
     {...
@@ -401,7 +409,7 @@ Add a route.
         $dayofWeek = Carbon::createFromFormat('d.m.Y', $date);
 ```
 
-- nearest - a mark on the checkbox, Nearest:
+nearest - a mark on the checkbox, Nearest:
 ######
 
 ```php
@@ -457,7 +465,7 @@ transmission and processing of parameters in the view resources/views/schedules/
 Laravel Syntax (QueryBuilder) - Relationships
 ######
 
-    Use QueryBuilder for sql-queries
+Use QueryBuilder for sql-queries
 	
 `useful links: `
 
@@ -602,7 +610,7 @@ If the migrations were manually deleted -
 
 [use link](https://laravel.io/forum/09-04-2014-after-deleting-migrations-file-manually-receive-errorexception-failed-to-open-stream-no-such-file-Or-directory)
 
-[Clears the table, but also resets the counter.](Https://www.stackoverflow.com/questions/131727/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0% B8% D1% 82% D1% 8C-% D0% B7% D0% BD% D0% B0% D1% 87% D0% B5% D0% BD% D0% B8% D0% B5-auto-increment)
+[Clears the table, but also resets the counter.](Https://www.stackoverflow.com/questions/131727/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0%B8%D1%82%D1%8C-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-auto-increment)
 
 [creating CRUD-editor:](http://georgehk.blogspot.com/2015/04/crud-operations-in-laravel-5-with-mysql.html)
 
@@ -614,7 +622,7 @@ If the migrations were manually deleted -
 
 Setting datepicker - <https://jqueryui.com/datepicker/>
 
-[Change the calendar language Datepicker](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0 % BD% D0% B8% D0% B5-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0-javascript-% D0% B8-% D0% B1% D0% B8% D0% B1% D0% BB% D0% B8% D0% BE% D1% 82% D0% B5% D0% BA% D0% B8-jquery-% D0% BF% D1% 80% D0% B8-% D1% 81% D0% BE% D0% B7% D0% B4% D0% B0% D0% BD% D0% B8% D0% B8-% D0% B2% D0% B5% D0% B1-% D1% 81% D0% B0% D0% B9% D1% 82% D0% B0 / 62% D1% 81% D0% BC% D0% B5% D0% BD% D0% B0-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0-% D0% BA% D0% B0% D0% BB% D0% B5% D0% BD% D0% B4% D0% B0% D1% 80% D1% 8F)
+[Change the calendar language Datepicker](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-javascript-%D0%B8-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-jquery-%D0%BF%D1%80%D0%B8-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B8-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0/62%D1%81%D0%BC%D0%B5%D0%BD%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8F)
 
 It is necessary that the previous dates were not active. Video - 
 
@@ -635,7 +643,7 @@ It is necessary that the previous dates were not active. Video -
 
 [Lesson # 22 Laravel 5.2 [data model, Eloquent (links between tables)] ( 50:54 ) ](https://www.youtube.com/watch?v=HvVxbaaLGtI) 
 	
-	[+relationships between tables Laravel documentation](Http://laravel.su/docs/5.3/eloquent#relationships)
+[+relationships between tables Laravel documentation](Http://laravel.su/docs/5.3/eloquent#relationships)
 
 [Lesson # 23 Laravel 5.2 [ using links between Eloquent models ] ( 37:47 ) ](https://www.youtube.com/watch?v=pZpHbabxCFc&t=5s) 
 
