@@ -101,6 +101,7 @@ Create a controller.
 
 In the command line
 ###### 
+
 `php artisan make: model Train`
 
 ...
@@ -331,7 +332,7 @@ View source:
   </script>
 ```  
   
-[Datepicker Calendar Language Change](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0% B8% D0% B5-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0-javascript-% D0% B8-% D0% B1% D0% B8% D0% B1% D0% BB % D0% B8% D0% BE% D1% 82% D0% B5% D0% BA% D0% B8-jquery-% D0% BF% D1% 80% D0% B8-% D1% 81% D0% BE% D0 % B7% D0% B4% D0% B0% D0% BD% D0% B8% D0% B8-% D0% B2% D0% B5% D0% B1-% D1% 81% D0% B0% D0% B9% D1 % 82% D0% B0 / 62-% D1% 81% D0% BC% D0% B5% D0% BD% D0% B0-% D1% 8F% D0% B7% D1% 8B% D0% BA% D0% B0 -% D0% BA% D0% B0% D0% BB% D0% B5% D0% BD% D0% B4% D0% B0% D1% 80% D1% 8F>)
+[Datepicker Calendar Language Change](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-javascript-%D0%B8-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-jquery-%D0%BF%D1%80%D0%B8-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B8-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0/62-%D1%81%D0%BC%D0%B5%D0%BD%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8F)
 ######
 
 ```php
@@ -517,7 +518,7 @@ Contact id tables of trains, cities, schedule_types with foreign keys in the com
                             'AND((schedules.schedule_type_id =: everyDay) OR (schedules.schedule_type_id =: scheduleType)))';
 ```
 
-    or using the QueryBuilder Query Designer:
+    or using the QueryBuilder:
 	
 ```php	
 -> join('trains', 'schedules.train_id', '=', 'trains.id')
@@ -607,12 +608,11 @@ We get the types of the traffic graph from the scheduleType model
 `useful links:`
 
 If the migrations were manually deleted - 
-
 [use link](https://laravel.io/forum/09-04-2014-after-deleting-migrations-file-manually-receive-errorexception-failed-to-open-stream-no-such-file-Or-directory)
 
 [Clears the table, but also resets the counter.](Https://www.stackoverflow.com/questions/131727/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0%B8%D1%82%D1%8C-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-auto-increment)
 
-[creating CRUD-editor:](http://georgehk.blogspot.com/2015/04/crud-operations-in-laravel-5-with-mysql.html)
+[creating CRUD-editor](http://georgehk.blogspot.com/2015/04/crud-operations-in-laravel-5-with-mysql.html)
 
 [Call to undefined method Illuminate\Foundation\Application::bindShared() after updating to Laravel 5.2](Https://github.com/laracasts/flash/issues/55) 
 
@@ -625,16 +625,14 @@ Setting datepicker - <https://jqueryui.com/datepicker/>
 [Change the calendar language Datepicker](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-javascript-%D0%B8-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-jquery-%D0%BF%D1%80%D0%B8-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B8-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0/62%D1%81%D0%BC%D0%B5%D0%BD%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8F)
 
 It is necessary that the previous dates were not active. Video - 
-
 [datepicker disable previousdate](https://www.youtube.com/watch?v=GYNtRphgzIw)
 
 [Lesson # 18 Laravel 5.2 [ working with the database, SQL queries, the facade DB ] ( 32:00 ) ](https://www.youtube.com/watch?v=Hgyj2qXJLZE)
-    
 	- It is very convenient when developing to track all SQL-queries.
-
+	
 [Lesson # 19 Laravel 5.2 [Query Builder, QueryBuilder] ( 57:06 )](https://www.youtube.com/watch?v=lpxXfSpUTmo)
 
- # 20-24 Eloquent lessons Vasily Pupkin
+ Eloquent lessons Vasily Pupkin # 20-24 
 ######
  
 [Lesson # 20 Laravel 5.2 [ Eloquent data model ] ( 32:20 )](https://www.youtube.com/watch?v=rVLiDwLbKew)
