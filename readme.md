@@ -320,15 +320,6 @@ View source:
 </body>
 </html>
 ```
-...
-
-```php
-  <script>
-  $(function () {
-    $ ("#datepicker") .datepicker ();
-  });
-  </script>
-```  
 
 Datepicker Language Change  
 ######
