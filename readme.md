@@ -91,19 +91,15 @@ Create a controller.
 ######
 `php artisan make:controller ScheduleController`
 
+1. Creation of models, in the command line:
+######
+`php artisan make: model Train`
+...
 
-1. Creation of models:
 -City
 -Schedule
 -Train
 -ScheduleType
-
-
-In the command line
-###### 
-`php artisan make: model Train`
-
-...
 
 2. Install Form and Html Facades
 ######
