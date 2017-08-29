@@ -96,10 +96,10 @@ Create a controller.
 `php artisan make: model Train`
 ...
 
--City
--Schedule
--Train
--ScheduleType
+- City
+- Schedule
+- Train
+- ScheduleType
 
 2. Install Form and Html Facades
 ######
@@ -322,7 +322,8 @@ View source:
  
 </body>
 </html>
-
+```
+```php
   <script>
   $(function () {
     $ ("#datepicker") .datepicker ();
