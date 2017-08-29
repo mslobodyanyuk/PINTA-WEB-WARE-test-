@@ -298,7 +298,7 @@ echo $schedule[0] -> id;
 >Setting datepicker - <https://jqueryui.com/datepicker/>
 View source:
 
-```html
+```php
 <!doctype html>
 <html lang = "en">
 <head>
@@ -322,9 +322,7 @@ View source:
  
 </body>
 </html>
-```
 
-```php
   <script>
   $(function () {
     $ ("#datepicker") .datepicker ();
