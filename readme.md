@@ -187,7 +187,7 @@ Let's implement Read action, create a new file in `resources/views/schedules/` c
                             -> join('cities', 'schedules.city_id', '=', 'cities.id')
                             -> join('schedule_types', 'schedules.schedule_type_id', '=', 'schedule_types.id')
                             -> select('schedules.id AS id', 'trains.name AS train', 'cities.name AS city', 'schedules.time AS time', 'schedule_types.name AS schedule_type')
-                            -> where('schedules.id', '=', $ id)
+                            -> where('schedules.id', '=', $id)
                             -> get();
 
         return view ('schedules.show', compact ('schedule'));
@@ -298,7 +298,7 @@ echo $schedule[0] -> id;
 >Setting datepicker - <https://jqueryui.com/datepicker/>
 View source:
 
-```php
+```html
 <!doctype html>
 <html lang = "en">
 <head>
@@ -316,13 +316,12 @@ View source:
   </ script>
 </head>
 <body>
- 
 <p> Date: <input type = "text" id = "datepicker"> </ p>
- 
- 
 </body>
 </html>
+```
 
+```php
   <script>
   $(function () {
     $ ("#datepicker") .datepicker ();
@@ -331,7 +330,6 @@ View source:
 ```  
   
 [Change the calendar language Datepicker](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-javascript-%D0%B8-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-jquery-%D0%BF%D1%80%D0%B8-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B8-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0/62%D1%81%D0%BC%D0%B5%D0%BD%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8F)
-
 
 ```php
  $(function () {
