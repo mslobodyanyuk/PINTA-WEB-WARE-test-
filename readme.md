@@ -62,13 +62,13 @@ If the migrations were manually deleted -
 ######
 After deleting "manually" "incomplete" migrations - created without specifying the parameter --create = table, so that there was no error, you need to call the command
 `сomposer dump-autoload`
-[forum link](https://laravel.io/forum/09-04-2014-after-deleting-migrations-file-manually-receive-errorexception-failed-to-open-stream-no-such-file-or-directory)
+[ - forum link](https://laravel.io/forum/09-04-2014-after-deleting-migrations-file-manually-receive-errorexception-failed-to-open-stream-no-such-file-or-directory)
 
 When debugging a project, it can be convenient to clear the fields id autoincrement /
 ######
 To nullify AUTO_INCREMENT, you need the following query:
 ALTER TABLE <table name> AUTO_INCREMENT = 0
-+? TRUNCATE <table_name>
+TRUNCATE <table_name>
 [Clears the table, but also resets the counter](https://www.stackoverflow.com/questions/131727/%D0%9A%D0%B0%D0%BA-%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0%B8%D1%82%D1%8C-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-auto-increment)
 
 
@@ -101,7 +101,6 @@ Create a controller.
 
 In the command line
 ###### 
-
 `php artisan make: model Train`
 
 ...
@@ -139,8 +138,11 @@ useful link:
 
 Add this lines in `config/app.php`
 In providers group:
+
 >Collective\Html\HtmlServiceProvider::class,
+
 In aliases group:
+
 >'Form' => Collective\Html\FormFacade::class,
 >'Html' => Collective\Html\HtmlFacade::class,
 
@@ -184,7 +186,7 @@ Let's implement Read action, create a new file in `resources/views/schedules/` c
 ```php
     public function show ($id)
     {
-        $schedule = DB :: table ('schedules')
+        $schedule = DB::table('schedules')
                             -> join('trains', 'schedules.train_id', '=', 'trains.id')
                             -> join('cities', 'schedules.city_id', '=', 'cities.id')
                             -> join('schedule_types', 'schedules.schedule_type_id', '=', 'schedule_types.id')
@@ -333,7 +335,7 @@ View source:
 ```  
   
 [Datepicker Calendar Language Change](http://it-bloknot.ru/?q=book/%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-javascript-%D0%B8-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-jquery-%D0%BF%D1%80%D0%B8-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B8-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B0%D0%B9%D1%82%D0%B0/62-%D1%81%D0%BC%D0%B5%D0%BD%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8F)
-######
+
 
 ```php
  $(function () {
