@@ -323,6 +323,7 @@ View source:
 </body>
 </html>
 ```
+
 ```php
   <script>
   $(function () {
