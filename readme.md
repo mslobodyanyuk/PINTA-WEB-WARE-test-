@@ -80,7 +80,10 @@ TRUNCATE <table_name>
     TRUNCATE schedule_types;
     TRUNCATE trains;
 
-Or use in console / phpStorm Termonal> php artisan migrate: rollback
+Or use in console / phpStorm Termonal
+
+`php artisan migrate: rollback`
+
 `php artisan migrate`
 
 Useful link - 
@@ -105,9 +108,13 @@ Create a controller.
 ######
 `сomposer require illuminate/html`
 >Add in providers config/app.php the following line of code
+
 'Illuminate\Html\HtmlServiceProvider',
+
 Add in aliases config/app.php the following lines of code
+
 >'Form' => 'Illuminate\Html\ FormFacade',
+
 >'Html' => 'Illuminate\Html\HtmlFacade',
 
 3. routes\web.php file
@@ -124,7 +131,9 @@ Add in aliases config/app.php the following lines of code
 >Go to folder resources/views and create a new folder called layout;
 >inside that new folder create a php file called template.blade.php and copy the following code:
 `Template.blade.php` file
+
 useful link:
+
 [Call to undefined method Illuminate\Foundation\Application::bindShared() after updating to Laravel 5.2](Https://github.com/laracasts/flash/issues/55)
 
 >Illuminate/HTML package has been deprecated
@@ -140,6 +149,7 @@ In providers group:
 In aliases group:
 
 >'Form' => Collective\Html\FormFacade::class,
+
 >'Html' => Collective\Html\HtmlFacade::class,
 
 5. Specify the fields to be filled in the corresponding array-property of the model.
@@ -151,7 +161,7 @@ Class Schedule extends Model
         'id',
         'id_train',
         'time',
-        'Schedule_type_id'
+        'schedule_type_id'
     ];
 }
 ```
@@ -230,7 +240,7 @@ class Schedule extends Model
 {
     protected $fillable = [
         'id',
-        'Train_id',
+        'train_id',
         'city_id',
         'time',
         'schedule_type_id'
