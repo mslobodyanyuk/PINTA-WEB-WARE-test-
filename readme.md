@@ -107,7 +107,7 @@ Create a controller.
 2. Install Form and Html Facades
 ######
 `сomposer require illuminate/html`
->Add in providers config/app.php the following line of code
+Add in providers config/app.php the following line of code
 
 'Illuminate\Html\HtmlServiceProvider',
 
@@ -121,6 +121,7 @@ Add in aliases config/app.php the following lines of code
 ######
  
 >Route::resource('/', 'ScheduleController');
+
 >Route::resource('schedule', 'ScheduleController');
 
 4. Create all the views:
@@ -130,6 +131,7 @@ Add in aliases config/app.php the following lines of code
 >Create layout for train schedule
 >Go to folder resources/views and create a new folder called layout;
 >inside that new folder create a php file called template.blade.php and copy the following code:
+
 `Template.blade.php` file
 
 useful link:
